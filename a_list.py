@@ -1,53 +1,69 @@
-def mixed_list(list_of_def,list_of_def2):
-    if len(list_of_def or list_of_def2 == 0):
-       return stop
-    else:
-        list_of_def = sentence.split(",")
-        return list_of_def
-        
+def mixed_list(list_of_ele_1, list_of_ele_2):
+  print("For the elements in the first list: {}".format(list_of_ele_1))
+  print("For the elements in the second list: {} ".format(list_of_ele_2))
+
+  for element in list_of_ele_2:
+    list_of_ele_1.append(element)
+  return list_of_ele_1
+  
+#def search_list(string_srch):
+    #user_list = []
+    #print("List entered {}".format(user_list))
+
+    #return user_list
+
 def main():
-    
-    new_list = []
-    list1 = None
-    list2 = None
+    # declare lists
+    list_1 = []
+    list_2 = []
+    string_srch = []
 
-    while list1 != "stop" or list2 != "stop":
-        list1 = input("Enter any elements and to end enter stop : ")
-        list2 = input("enter any elements and to end  enter stop :")
+    # intro
+    print("This program will do two problems.")
+    print("Option 1: Merge two lists together.")
+    print("Option 2: Find the index of the speficied string.")
+    print("Please choose!")
+    print("")
 
-        try:
-            # convert from a string to a float
-            list1_string = float(list1)
-            list2_string = int(list2)
+    # gets input
+    choice = input("Which option would you like to choose (1/2): ")
 
-            # handle invalid inputs.
-            if list1_string < -1 or list2_string < -1 :
-                print("Please enter a positive number.")
-                continue
-            new_list.append(list1_string,list2_string)
+    # checks to see the choice user has enters
+    if choice == "1":
+      # get user input
+      print("Please enter a list of different elements for each list.")
+      print("")
 
-        # Error case
-        except Exception:
-            print(" It is taken as an invalid input.")
+      # gets user input
+      user_list_1 = input("Enter the first list of elements: ")
+      list_1 = user_list_1.split(",")
 
-    # removing the last number(stop from the list and call the function
-    new_list.pop()
-    list = mixed_list(list_of_def)
+      # gets more user input
+      user_list_2 = input("Enter the second list of elements: ")
+      list_2 = user_list_2.split(",")
 
-    # displays  the two  list to the user
-    print("For the lists in  first elements : {}".format(list1_string))
-    print("For the lista in second elements".format(list2_string))
- 
-    # Adding the two list 
-    for a_num in new_list :
-        new_list.append(list1_string, list2_string)
-        new_list= list1_string + list2_string
-        print("for the mixed list = {}".format(list1_string, list2_string)
+      # calls function & displays to user
+      final_list = mixed_list(list_1, list_2)
+      print("")
+      print("The two lists joined together is: {}".format(final_list))
 
-    # search
-    for     
+     # does option 2
+    elif choice == "2":
 
+      user_strg = input("Enter a list of strings: ")
+      list_strings = user_strg.split(",")
+      print(list_strings)
+      print("")
+      
+      user_srch = input("Enter a string to find for:")
+      print(user_srch)
+     
+      for user_srch in list_strings :
+        string_srch = list_strings.index(user_srch)  
+      #result_search = search_list(string_srch)
+      print("{} occurs in at indexs {} and.".format(user_srch,string_srch))
+    else:
+      print("Please enter a valid entry.")
 
 if __name__ == "__main__":
-    main()
-
+  main()
